@@ -2,7 +2,7 @@
 #include <leatherman/windows/process.hpp>
 #include <leatherman/windows/system_error.hpp>
 #include <leatherman/windows/windows.hpp>
-#include <leatherman/scoped_resource.hpp>
+#include <leatherman/windows/scoped_resource.hpp>
 #include <leatherman/logging/logging.hpp>
 #include <boost/nowide/convert.hpp>
 #include <userenv.h>
