@@ -1,5 +1,4 @@
 #include <leatherman/windows/wmi.hpp>
-//#include <facter/execution/execution.hpp>
 #include <leatherman/logging/logging.hpp>
 #include <boost/algorithm/string/join.hpp>
 #include <boost/algorithm/string/trim.hpp>
@@ -11,7 +10,6 @@
 #include <wbemidl.h>
 
 using namespace std;
-using namespace facter::execution;
 
 namespace leatherman { namespace windows {
 
@@ -189,4 +187,4 @@ namespace leatherman { namespace windows {
         }
     }
 
-}}}  // namespace facter::util::windows
+}}  // namespace leatherman::windows

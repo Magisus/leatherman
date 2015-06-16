@@ -14,6 +14,7 @@ set(WINDOWS_UTIL_SOURCES
   "src/registry.cc"
   "src/process.cc"
   "src/user.cc"
+  "src/wmi.cc"
 )
 
 add_leatherman_library(${WINDOWS_UTIL_SOURCES})
