@@ -1,4 +1,4 @@
-#include <leatherman/windows/scoped_resource.hpp>
+#include <leatherman/util/scoped_resource.hpp>
 #include <leatherman/windows/system_error.hpp>
 #include <leatherman/windows/windows.hpp>
 #include <boost/format.hpp>
