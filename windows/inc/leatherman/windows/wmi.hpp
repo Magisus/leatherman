@@ -4,7 +4,7 @@
  */
 #pragma once
 
-#include <leatherman/windows/scoped_resource.hpp>
+#include <leatherman/util/scoped_resource.hpp>
 #include <boost/algorithm/string/predicate.hpp>
 #include <boost/algorithm/string/compare.hpp>
 #include <boost/range/iterator_range.hpp>

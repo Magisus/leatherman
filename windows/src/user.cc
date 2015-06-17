@@ -2,7 +2,7 @@
 #include <leatherman/windows/process.hpp>
 #include <leatherman/windows/system_error.hpp>
 #include <leatherman/windows/windows.hpp>
-#include <leatherman/windows/scoped_resource.hpp>
+#include <leatherman/util/scoped_resource.hpp>
 #include <leatherman/logging/logging.hpp>
 #include <boost/nowide/convert.hpp>
 #include <userenv.h>
@@ -73,4 +73,5 @@ namespace leatherman { namespace windows { namespace user {
         return boost::nowide::narrow(buffer);
     }
 
-}}} // namespace leatherman::windows::user
+}}}  // namespace leatherman::windows::user
+

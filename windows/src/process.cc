@@ -1,6 +1,6 @@
 #include <leatherman/windows/system_error.hpp>
 #include <leatherman/windows/windows.hpp>
-#include <leatherman/windows/scoped_resource.hpp>
+#include <leatherman/util/scoped_resource.hpp>
 #include <leatherman/logging/logging.hpp>
 
 using namespace std;
@@ -39,4 +39,4 @@ namespace leatherman { namespace windows { namespace process {
         return token_elevation.TokenIsElevated;
     }
 
-}}} // namespace leatherman::windows::process
+}}}  // namespace leatherman::windows::process

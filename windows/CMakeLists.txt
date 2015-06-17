@@ -4,6 +4,7 @@ add_leatherman_includes("${Boost_INCLUDE_DIRS}")
 
 leatherman_dependency(nowide)
 leatherman_dependency(logging)
+leatherman_dependency(util)
 
 if (BUILDING_LEATHERMAN)
     leatherman_logging_namespace("leatherman.logging")
