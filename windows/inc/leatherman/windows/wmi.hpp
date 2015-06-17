@@ -4,7 +4,6 @@
  */
 #pragma once
 
-
 #include <leatherman/util/scoped_resource.hpp>
 #include <boost/algorithm/string/predicate.hpp>
 #include <boost/algorithm/string/compare.hpp>

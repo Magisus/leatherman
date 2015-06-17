@@ -40,7 +40,11 @@ namespace leatherman { namespace windows { namespace process {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 }}} // namespace leatherman::windows::process
 =======
 }}}  // namespace leatherman::windows::process
 >>>>>>> windows-util-clean
+=======
+}}} // namespace leatherman::windows::process
+>>>>>>> 3c20c21f6a31ea254472d625d65c1037e03b778d

@@ -74,7 +74,11 @@ namespace leatherman { namespace windows { namespace user {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 }}} // namespace leatherman::windows::user
 =======
 }}}  // namespace leatherman::windows::user
 >>>>>>> windows-util-clean
+=======
+}}} // namespace leatherman::windows::user
+>>>>>>> 3c20c21f6a31ea254472d625d65c1037e03b778d
