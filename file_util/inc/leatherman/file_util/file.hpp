@@ -1,0 +1,78 @@
+/**
+ * @file
+ * Declares utility functions for reading data from files.
+ */
+#pragma once
+
+#include <boost/filesystem.hpp>
+
+#include <string>
+#include <stdexcept>
+#include <functional>
+
+namespace leatherman { namespace file_util {
+
+    /**
+     * Reads each line from the given file.
+     * @param path The path to the file to read.
+     * @param callback The callback function that is passed each line in the file.
+     * @return Returns true if the file was opened successfully or false if it was not.
+     */
+    bool each_line(std::string const& path, std::function<bool(std::string&)> callback);
+
+    /**
+     * Reads the entire contents of the given file into a string.
+     * @param path The path of the file to read.
+     * @return Returns the file contents as a string.
+     */
+    std::string read(std::string const& path);
+
+    /**
+     * Reads the entire contents of the given file into a string.
+     * @param path The path of the file to read.
+     * @param contents The returned file contents.
+     * @return Returns true if the contents were read or false if the file is not readable.
+     */
+    bool read(std::string const& path, std::string& contents);
+
+    /**
+     *@return Returns true if the specified file exists.
+     */
+    bool file_readable(const std::string &file_path);
+
+    /**
+     * Writes content to file in the specified mode.If file exists,
+     * its previous content will be deleted, so appending is not
+     * possible.
+     * Throws an error in case it fails to open the file to write.
+     */
+    void atomic_write_to_file(const std::string &text,
+                              const std::string &file_path,
+                              std::ios_base::openmode mode = std::ios::binary);
+
+    /**
+     * Expands a leading tilde to the user's home directory
+     * @return Returns the expanded path, or the original string
+     *         in case the expansion fails.
+     */
+    std::string tildeExpand(std::string path);
+
+    /**
+     * Returns a shell-safe version of the path
+     */
+    std::string shellQuote(std::string path);
+
+    struct FileCopy {
+        boost::filesystem::path source;
+        std::string relativeName;
+    };
+
+    using FileList = std::vector<FileCopy>;
+
+    /**
+     * Returns a set of files suitable for copying
+     */
+    FileList relativeFileList(boost::filesystem::path path);
+
+
+}}  // namespace leatherman::file_util
