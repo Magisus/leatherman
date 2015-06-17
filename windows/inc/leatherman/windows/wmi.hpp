@@ -112,7 +112,7 @@ namespace leatherman { namespace windows {
         /**
          * Multi-map with case-insensitive lookup.
          */
-        using imap = std::multimap<std::string, std::string, util::ciless>;
+        using imap = std::multimap<std::string, std::string, facter::util::ciless>;
 
         /**
          * Vector of case-insensitive multi-maps.
