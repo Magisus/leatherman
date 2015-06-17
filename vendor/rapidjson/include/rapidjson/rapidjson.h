@@ -223,11 +223,7 @@
 
 //! Whether using 64-bit architecture
 #ifndef RAPIDJSON_64BIT
-<<<<<<< HEAD
 #if defined(__LP64__) || defined(_WIN64)
-=======
-#if defined(__LP64__) || defined(_WIN64) || defined(__EMSCRIPTEN__)
->>>>>>> c8687ac... (LTH-11) Move DataContainer class to Leatherman
 #define RAPIDJSON_64BIT 1
 #else
 #define RAPIDJSON_64BIT 0

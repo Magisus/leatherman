@@ -967,21 +967,13 @@ private:
         else {
             if (use64bit) {
                 if (minus)
-<<<<<<< HEAD
                     cont = handler.Int64(-(int64_t)i64);
-=======
-                    cont = handler.Int64(static_cast<int64_t>(~i64 + 1));
->>>>>>> c8687ac... (LTH-11) Move DataContainer class to Leatherman
                 else
                     cont = handler.Uint64(i64);
             }
             else {
                 if (minus)
-<<<<<<< HEAD
                     cont = handler.Int(-(int)i);
-=======
-                    cont = handler.Int(static_cast<int32_t>(~i + 1));
->>>>>>> c8687ac... (LTH-11) Move DataContainer class to Leatherman
                 else
                     cont = handler.Uint(i);
             }
@@ -1395,7 +1387,6 @@ private:
         }
         
         switch (src) {
-<<<<<<< HEAD
         case IterativeParsingStartState:            RAPIDJSON_PARSE_ERROR(kParseErrorDocumentEmpty, is.Tell());
         case IterativeParsingFinishState:           RAPIDJSON_PARSE_ERROR(kParseErrorDocumentRootNotSingular, is.Tell());
         case IterativeParsingObjectInitialState:
@@ -1403,15 +1394,6 @@ private:
         case IterativeParsingMemberKeyState:        RAPIDJSON_PARSE_ERROR(kParseErrorObjectMissColon, is.Tell());
         case IterativeParsingMemberValueState:      RAPIDJSON_PARSE_ERROR(kParseErrorObjectMissCommaOrCurlyBracket, is.Tell());
         case IterativeParsingElementState:          RAPIDJSON_PARSE_ERROR(kParseErrorArrayMissCommaOrSquareBracket, is.Tell());
-=======
-        case IterativeParsingStartState:            RAPIDJSON_PARSE_ERROR(kParseErrorDocumentEmpty, is.Tell()); return;
-        case IterativeParsingFinishState:           RAPIDJSON_PARSE_ERROR(kParseErrorDocumentRootNotSingular, is.Tell()); return;
-        case IterativeParsingObjectInitialState:
-        case IterativeParsingMemberDelimiterState:  RAPIDJSON_PARSE_ERROR(kParseErrorObjectMissName, is.Tell()); return;
-        case IterativeParsingMemberKeyState:        RAPIDJSON_PARSE_ERROR(kParseErrorObjectMissColon, is.Tell()); return;
-        case IterativeParsingMemberValueState:      RAPIDJSON_PARSE_ERROR(kParseErrorObjectMissCommaOrCurlyBracket, is.Tell()); return;
-        case IterativeParsingElementState:          RAPIDJSON_PARSE_ERROR(kParseErrorArrayMissCommaOrSquareBracket, is.Tell()); return;
->>>>>>> c8687ac... (LTH-11) Move DataContainer class to Leatherman
         default:                                    RAPIDJSON_PARSE_ERROR(kParseErrorUnspecificSyntaxError, is.Tell());
         }       
     }
