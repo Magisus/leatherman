@@ -4,6 +4,9 @@
  */
 #pragma once
 
+#include <boost/algorithm/string/predicate.hpp>
+#include <boost/algorithm/string/compare.hpp>
+#include <boost/range/iterator_range.hpp>
 #include <string>
 
 namespace leatherman { namespace util {
