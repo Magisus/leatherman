@@ -5,6 +5,7 @@
 #pragma once
 
 #include <leatherman/util/scoped_resource.hpp>
+#include <leatherman/util/strings.hpp>
 #include <boost/algorithm/string/predicate.hpp>
 #include <boost/algorithm/string/compare.hpp>
 #include <boost/range/iterator_range.hpp>
@@ -112,7 +113,7 @@ namespace leatherman { namespace windows {
         /**
          * Multi-map with case-insensitive lookup.
          */
-        using imap = std::multimap<std::string, std::string, facter::util::ciless>;
+        using imap = std::multimap<std::string, std::string, util::ciless>;
 
         /**
          * Vector of case-insensitive multi-maps.
