@@ -27,5 +27,4 @@ namespace leatherman { namespace windows { namespace user {
      */
     std::string home_dir();
 
-
 }}}  // namespace leatherman::windows::user
