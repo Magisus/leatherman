@@ -74,4 +74,3 @@ namespace leatherman { namespace windows { namespace user {
     }
 
 }}}  // namespace leatherman::windows::user
-
