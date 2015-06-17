@@ -1,3 +1,4 @@
+#include <leatherman/util/strings.hpp>
 #include <leatherman/windows/wmi.hpp>
 #include <leatherman/logging/logging.hpp>
 #include <boost/algorithm/string/join.hpp>
