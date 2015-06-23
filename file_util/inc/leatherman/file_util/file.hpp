@@ -74,5 +74,9 @@ namespace leatherman { namespace file_util {
      */
     FileList relative_file_list(boost::filesystem::path path);
 
+    /**
+     * Returns the home path for the current platform.
+     */
+    std::string get_home_path();
 
 }}  // namespace leatherman::file_util

@@ -13,13 +13,13 @@ namespace leatherman { namespace file_util {
 
 TEST_CASE("file_util::tilde_expand", "[utils]") {
 #ifdef _WIN32
-    boost::nowide::setenv("USERPROFILE", "/testhome", 1)
+    _putenv("USERPROFILE=/testhome");
 #else
     setenv("HOME", "/testhome", 1);
 #endif
 
     SECTION("empty path should be empty") {
-        REQUIRE(tilde_expand("") == "");
+        REQUIRE(tilde_expand("").empty());
     }
 
     SECTION("spaces should be preserved") {
@@ -48,7 +48,7 @@ TEST_CASE("file_util::tilde_expand", "[utils]") {
         REQUIRE(tilde_expand("./foo") == "./foo");
     }
 
-    std::string home_path { getenv("HOME") };
+    auto home_path = get_home_path();
 
     SECTION("it should expand ~ to the HOME env var") {
         REQUIRE(tilde_expand("~") == home_path);

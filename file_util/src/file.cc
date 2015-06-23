@@ -79,12 +79,7 @@ namespace boost_file = boost::filesystem;
 
     std::string tilde_expand(std::string path) {
         if (path[0] == '~' && (path.size() == 1 || path[1] == '/')) {
-            #ifdef _WIN32
-                std::string result { boost::nowide::getenv("USERPROFILE") };
-            #else
-                std::string result { boost::nowide::getenv("HOME") };
-            #endif
-
+            auto result = get_home_path();
             result.append(path.begin() + 1, path.end());
             return result;
         }
@@ -118,6 +113,22 @@ namespace boost_file = boost::filesystem;
             list.emplace_back(FileCopy { walker->path(), target_path });
         }
         return list;
+    }
+
+    std::string get_home_path(){
+        #ifdef _WIN32
+            auto home_var = "USERPROFILE";
+            auto result = boost::nowide::getenv(home_var);
+        #else
+            auto home_var = "HOME";
+			auto result = boost::nowide::getenv(home_var);
+        #endif
+        if(result){
+            return result;
+        } else {
+            LOG_WARNING("%1% has not been set", home_var);
+            return "";
+        }
     }
 
 }}  // namespace leatherman::file_util
