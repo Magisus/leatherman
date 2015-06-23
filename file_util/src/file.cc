@@ -1,6 +1,7 @@
 #include <leatherman/file_util/file.hpp>
 #include <boost/nowide/fstream.hpp>
 #include <boost/nowide/cenv.hpp>
+#include <boost/filesystem/operations.hpp>
 #include <boost/system/error_code.hpp>
 #include <sstream>
 #include <leatherman/logging/logging.hpp>
