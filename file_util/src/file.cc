@@ -77,7 +77,7 @@ namespace boost_file = boost::filesystem;
         rename(tmp_name.data(), file_path.data());
     }
 
-    std::string tildeExpand(std::string path) {
+    std::string tilde_expand(std::string path) {
         if (path[0] == '~' && (path.size() == 1 || path[1] == '/')) {
             #ifdef _WIN32
                 std::string result { boost::nowide::getenv("USERPROFILE") };
@@ -91,13 +91,13 @@ namespace boost_file = boost::filesystem;
         return path;
     }
 
-    std::string shellQuote(std::string path) {
+    std::string shell_quote(std::string path) {
         std::stringstream ss;
         ss << boost::io::quoted(path);
         return ss.str();
     }
 
-    FileList relativeFileList(boost_file::path path) {
+    FileList relative_file_list(boost_file::path path) {
         FileList list;
 
         std::string common_prefix { path.string() };

@@ -10,7 +10,7 @@ namespace leatherman { namespace file_util {
 // TODO(ale): consider making file_utils.cpp and string_utils.cpp
 // consistent across cthun-agent and pegasus before writing more tests
 
-TEST_CASE("file_util::tildeExpand", "[utils]") {
+TEST_CASE("file_util::tilde_expand", "[utils]") {
 #ifdef _WIN32
     boost::nowide::setenv("USERPROFILE", "/testhome", 1)
 #else
@@ -18,89 +18,89 @@ TEST_CASE("file_util::tildeExpand", "[utils]") {
 #endif
 
     SECTION("empty path should be empty") {
-        REQUIRE(tildeExpand("") == "");
+        REQUIRE(tilde_expand("") == "");
     }
 
     SECTION("spaces should be preserved") {
-        REQUIRE(tildeExpand("i like spaces") == "i like spaces");
+        REQUIRE(tilde_expand("i like spaces") == "i like spaces");
     }
 
     SECTION("should expand using environment variable") {
-        CHECK(tildeExpand("~") == "/testhome");
-        CHECK(tildeExpand("~/") == "/testhome/");
-        CHECK(tildeExpand("~/foo") == "/testhome/foo");
+        CHECK(tilde_expand("~") == "/testhome");
+        CHECK(tilde_expand("~/") == "/testhome/");
+        CHECK(tilde_expand("~/foo") == "/testhome/foo");
     }
 
     SECTION("only a ~ at the start") {
-        REQUIRE(tildeExpand("/foo/bar~") == "/foo/bar~");
+        REQUIRE(tilde_expand("/foo/bar~") == "/foo/bar~");
     }
 
     SECTION("~baz/foo does not expand") {
-        REQUIRE(tildeExpand("~baz/foo") == "~baz/foo");
+        REQUIRE(tilde_expand("~baz/foo") == "~baz/foo");
     }
 
     SECTION("it should expand the home directory path") {
-        REQUIRE(tildeExpand("~/foo") != "~/foo");
+        REQUIRE(tilde_expand("~/foo") != "~/foo");
     }
 
     SECTION("it should not expand the working directory path") {
-        REQUIRE(tildeExpand("./foo") == "./foo");
+        REQUIRE(tilde_expand("./foo") == "./foo");
     }
 
     std::string home_path { getenv("HOME") };
 
     SECTION("it should expand ~ to the HOME env var") {
-        REQUIRE(tildeExpand("~") == home_path);
+        REQUIRE(tilde_expand("~") == home_path);
     }
 
     SECTION("it should expand ~ as the base directory") {
         std::string expected_path { home_path + "/spam" };
-        std::string expanded_path { tildeExpand("~/spam") };
+        std::string expanded_path {tilde_expand("~/spam") };
         REQUIRE(expanded_path == expected_path);
     }
 }
 
-TEST_CASE("shellQuote", "[utils]") {
+TEST_CASE("shell_quote", "[utils]") {
     SECTION("empty string") {
-        REQUIRE(shellQuote("") == "\"\"");
+        REQUIRE(shell_quote("") == "\"\"");
     }
 
     SECTION("single word") {
-        REQUIRE(shellQuote("plain") == "\"plain\"");
+        REQUIRE(shell_quote("plain") == "\"plain\"");
     }
 
     SECTION("words separated by space") {
-        REQUIRE(shellQuote("a space") == "\"a space\"");
+        REQUIRE(shell_quote("a space") == "\"a space\"");
     }
 
     SECTION("exclamation mark") {
-        REQUIRE(shellQuote("!csh") == "\"!csh\"");
+        REQUIRE(shell_quote("!csh") == "\"!csh\"");
     }
 
     SECTION("single quote before expression") {
-        REQUIRE(shellQuote("'open quote") == "\"'open quote\"");
+        REQUIRE(shell_quote("'open quote") == "\"'open quote\"");
     }
 
     SECTION("single quote after expression") {
-        REQUIRE(shellQuote("close quote'") == "\"close quote'\"");
+        REQUIRE(shell_quote("close quote'") == "\"close quote'\"");
     }
 
     SECTION("double quote before expression") {
-        REQUIRE(shellQuote("\"open doublequote")
+        REQUIRE(shell_quote("\"open doublequote")
                 == "\"\\\"open doublequote\"");
     }
 
     SECTION("double quote after expression") {
-        REQUIRE(shellQuote("close doublequote\"")
+        REQUIRE(shell_quote("close doublequote\"")
                 == "\"close doublequote\\\"\"");
     }
 }
 
-static const auto home_path = tildeExpand("~");
+static const auto home_path = tilde_expand("~");
 static const auto file_path =
-        tildeExpand("~/test_file_" + boost::filesystem::unique_path().string());
+        tilde_expand("~/test_file_" + boost::filesystem::unique_path().string());
 static const auto dir_path =
-        tildeExpand("~/test_dir_" + boost::filesystem::unique_path().string());
+        tilde_expand("~/test_dir_" + boost::filesystem::unique_path().string());
 
 TEST_CASE("lth_file::file_readable", "[utils]") {
     SECTION("it can check that a file does not exist") {

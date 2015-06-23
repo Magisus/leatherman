@@ -55,12 +55,12 @@ namespace leatherman { namespace file_util {
      * @return Returns the expanded path, or the original string
      *         in case the expansion fails.
      */
-    std::string tildeExpand(std::string path);
+    std::string tilde_expand(std::string path);
 
     /**
      * Returns a shell-safe version of the path
      */
-    std::string shellQuote(std::string path);
+    std::string shell_quote(std::string path);
 
     struct FileCopy {
         boost::filesystem::path source;
@@ -72,7 +72,7 @@ namespace leatherman { namespace file_util {
     /**
      * Returns a set of files suitable for copying
      */
-    FileList relativeFileList(boost::filesystem::path path);
+    FileList relative_file_list(boost::filesystem::path path);
 
 
 }}  // namespace leatherman::file_util
