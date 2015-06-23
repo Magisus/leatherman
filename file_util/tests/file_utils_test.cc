@@ -105,11 +105,8 @@ static const auto dir_path =
 
 TEST_CASE("lth_file::file_readable", "[utils]") {
     SECTION("it can check that a file does not exist") {
+        CAPTURE(file_path);
         REQUIRE_FALSE(file_readable(file_path));
-    }
-
-    SECTION("it can check that a directory exists") {
-        REQUIRE(file_readable(home_path));
     }
 }
 
@@ -120,16 +117,6 @@ TEST_CASE("lth_file::atomic_write_to_file", "[utils]") {
         REQUIRE(file_readable(file_path));
         boost::filesystem::remove(file_path);
         REQUIRE_FALSE(file_readable(file_path));
-    }
-}
-
-TEST_CASE("lth_file::createDirectory", "[utils]") {
-    SECTION("it can create and remove an empty directory") {
-        REQUIRE_FALSE(file_readable(dir_path));
-        boost::filesystem::create_directory(dir_path);
-        REQUIRE(file_readable(dir_path));
-        boost::filesystem::remove(dir_path);
-        REQUIRE_FALSE(file_readable(dir_path));
     }
 }
 

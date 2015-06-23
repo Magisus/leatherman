@@ -54,10 +54,17 @@ namespace boost_file = boost::filesystem;
         bool exists { false };
         if (file_path.empty()) {
             LOG_WARNING("file path is an empty string");
-        } else {
-            boost::nowide::ifstream file_stream(file_path.c_str());
-            exists = file_stream.good();
-            file_stream.close();
+        } else{
+            boost::system::error_code ec;
+            boost_file::file_status status = boost_file::status(file_path.c_str(), ec);
+            if(boost_file::status_known(status)) {
+                boost::nowide::ifstream file_stream(file_path.c_str());
+                exists = file_stream.good();
+                file_stream.close();
+            } else {
+                LOG_DEBUG("Error reading file: %1%", ec.message());
+                exists = false;
+            }
         }
         return exists;
     }
