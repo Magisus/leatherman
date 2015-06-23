@@ -1,5 +1,6 @@
 #include <catch.hpp>
 #include <leatherman/file_util/file.hpp>
+#include <boost/nowide/cenv.hpp>
 
 #ifdef _WIN32
 #include <windows.h>
