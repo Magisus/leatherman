@@ -261,4 +261,17 @@ namespace leatherman { namespace logging {
      */
     bool color_supported(std::ostream &dst);
 
+    /**
+     * Sets the error code to be returned on program exit.
+     * @param error_code The new error code to be returned.
+     */
+    void set_error_code(int error_code);
+
+    /**
+     * Returns an exit code representing the error state of the program run. Defaults to 0, indicating an
+     * error-free run.
+     * @return 0 if no error code was set, else a number representing program error state.
+     */
+    int get_error_code();
+
 }}  // namespace leatherman::logging

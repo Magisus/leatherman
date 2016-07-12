@@ -32,6 +32,7 @@ namespace leatherman { namespace logging {
     static log_level g_level = log_level::none;
     static bool g_colorize = false;
     static bool g_error_logged = false;
+    static int g_error_code = 0;
 
     namespace lth_locale = leatherman::locale;
 
@@ -213,6 +214,14 @@ namespace leatherman { namespace logging {
         }
 
         return strm;
+    }
+
+    void set_error_code(int error_code) {
+        g_error_code = error_code;
+    }
+
+    int get_error_code() {
+        return g_error_code;
     }
 
 }}  // namespace leatherman::logging
