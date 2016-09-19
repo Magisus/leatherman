@@ -14,6 +14,11 @@ if (LEATHERMAN_USE_LOCALES AND BOOST_STATIC AND APPLE)
     add_leatherman_deps(iconv)
 endif()
 
+message("USE_LOCALES: ${LEATHERMAN_USE_LOCALES}")
+message("BOOST_STATIC: ${BOOST_STATIC}")
+message("APPLE: ${APPLE}")
+message(${LEATHERMAN_LOCALE_DEPS})
+
 add_leatherman_headers(inc/leatherman)
 
 if (LEATHERMAN_USE_LOCALES)
